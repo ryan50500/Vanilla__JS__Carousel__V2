@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Vanilla JS Carousel</title>
+</head>
+<body>
+    <div class="track__container">
+        <!-- carousel holder - div class must be '.track__one'-->
+        <div class="track track__one">
+             <!-- each div class must have 'holder one', 'holder two' etc -->
+           <div class="holder one">
+              <div class="show__one">
+                 <h3 class="preline__h3">Episode 1: The Trend Report</h3>
+                 <p>Your runway report with Olivia Waynex just dropped! Tune in for the latest fashion & beauty trends…</p>
+                 <button class="watch__now" id="liveshopping-qD1B3BhrioIZGQZdQdMo">Watch Now</button>
+              </div>
+           </div>
+           <div class="holder two">
+              <div class="show__two">
+                 <h3 class="preline__h3">Episode 2: The Coat Edit</h3>
+                 <p>We've gone coat shopping for you, with our host Olivia Wayne.</p>
+                 <button class="watch__now" id="liveshopping-7LtxrG28OBiIgA7qNfes">Watch Now</button>
+              </div>
+           </div>
+           <div class="holder three">
+              <div class="show__three">
+                 <h3 class="preline__h3">Episode 3: Dress The Part</h3>
+                 <p>Join Georgina Lennon & Megan Carole for exclusive Autumn dress style&nbsp;tips.</p>
+                 <button class="watch__now" id="liveshopping-16PLuD9L1aBsX5wHlhVZ">Watch Now</button>
+              </div>
+           </div>
+           <div class="holder four">
+              <div class="show__three">
+                 <h3 class="preline__h3">Episode 4: The Part</h3>
+                 <p>Join Georgina Lennon & Megan Carole for exclusive Autumn dress style&nbsp;tips.</p>
+                 <button class="watch__now">Watch Now</button>
+              </div>
+           </div>
+           <div class="holder five">
+              <div class="show__three">
+                 <h3 class="preline__h3">Episode 5: more text</h3>
+                 <p>Join Georgina Lennon & Megan Carole for exclusive Autumn dress style&nbsp;tips.</p>
+                 <button class="watch__now" id="FIVE">Watch Now</button>
+              </div>
+           </div>
+        </div>
+    </div>
+    <button class="button__play forward">Forwards</button>
+    <button class="button__play backwards">Backwards</button>
+</script>
+</body>
+
+<style>
+       .track__container {
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    background-color: #ffffff;
+}
+.hiding {
+    display: none !important;
+}
+.invisible {
+    visibility: hidden;
+}
+.track {
+    width: auto;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    transition: 0.7s all linear;
+    background-color: #ffffff;
+}
+ 
+
+.button__play {
+    padding: 10px 20px;
+    background-color: lightcoral;
+    position: absolute;
+}
+.forward {
+    right: 150px;
+}
+.backwards {
+    left: 150px;
+}
+.watch__now {
+    color: black !important;
+    display: block;
+    padding: 10px 15px;
+    margin: 0 auto;
+    border: none;
+    width: auto;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: 700;
+}
+.track__container .holder {
+    text-align: center;
+    margin: 2rem 1rem;
+    padding: 0;
+   width: 320px;
+    height: 350px;
+}
+.track__one .holder:nth-child(even) {
+    background-color: #F7F3ED;
+}
+.track__one .holder:nth-child(odd) {
+    background-color: black;
+}
+.track__one .holder:nth-child(odd) *:not(button) {
+    color: #eeeeee;
+}
+ 
+.track__two .holder:nth-child(even) {
+    background-color: black;;
+}
+.track__two .holder:nth-child(odd) {
+    background-color: #F7F3ED;
+}
+.track__two .holder:nth-child(odd) *:not(button) {
+    color: black;
+}
+.track__two .holder:nth-child(even) *:not(button) {
+    color: #F7F3ED;;
+}
+.track__container div[class^='show__'] {
+    padding-top: 97px;
+}
+.track__container h3 {
+    font-size: 16px;
+    line-height: 1.7rem;
+}
+.track__container .holder p {
+    margin: 5% 15%;
+    padding: 0;
+    white-space: normal;
+}
+.track__container span {
+    color: #903C1B;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.track__container h3 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
+}
+.track__container .dates {
+    color: #903C1B;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-bottom: 27px;
+}
+.show__one .track__container .holder p {
+    margin: 5% 0 9% 0;
+}
+.track__container .holder p {
+    margin: 5% 0;
+    padding: 0;
+    white-space: pre-line;
+}
+.preline__h3 {
+    white-space: pre-line;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .track__container .holder p {
+        margin: 5% 10px;
+        white-space: normal;
+   }
+    .track__container h3 {
+        font-size: 18px;
+   }
+}
+@media (min-width: 768px) {
+    .hide__desktop {
+        display: none !important;
+   }
+}
+@media (max-width: 767px) {
+    .hide__mobile {
+        display: none;
+   }
+    .track__container .dates {
+        color: #903C1B;
+        text-transform: uppercase;
+        font-weight: 700;
+   }
+    .watch__now {
+        margin-bottom: 2rem;
+   }
+    .forward {
+        right: 0px;
+   }
+    .backwards {
+        left: 0px;
+   }
+}
+</style>
+
+<script>
+    // clones the first carousel so we have two carousels running
+// get the carousel track
+const node = document.querySelector(".track__one");
+// clone the carousel and assign a variable to it called 'clone'
+const clone = node.cloneNode(true);
+// remove the class of '.track__one' from the newly cloned carousel
+clone.classList.remove("track__one");
+// add the class of '.track__two' to the newly cloned carousel
+clone.classList.add("track__two");
+// add an ID of '.track__two' to the newly cloned carousel
+clone.setAttribute("id", "track__two");
+// append the new carousel to the container
+document.querySelector(".track__container").append(clone);
+ 
+
+// forward button
+const forwardButton = document.querySelector('.forward');
+// backwards button
+const backwardsButton = document.querySelector('.backwards');
+// carousel whole track
+const track = document.querySelector('.track__container');
+// carousel first track
+const trackOne = document.querySelector('.track__one');
+// carousel second track
+const trackTwo = document.querySelector('.track__two');
+// each carousel item
+const boxes = document.querySelectorAll('.holder');
+ 
+// don't allow user too many backwards clicks which would break carousel
+let backwardClickLimit = 0;
+ 
+let trackOneRunsAgain = false;
+ 
+let finalCount = 1;
+ 
+// number of slides in first carousel
+const numberOfSlides = document.querySelectorAll('.track__one .holder');
+ 
+let trackOneCount = 1;
+let trackTwoCount = 1;
+ 
+let trackOneActive = true;
+ 
+let resetCarousel;
+let secondTrackCounter;
+let resetCarouselVariables;
+ 
+// if there are 15 items in carousel
+if (numberOfSlides.length === 15) {
+    resetCarousel = 16;
+    secondTrackCounter = 29;
+    resetCarouselVariables = 26;
+}
+// if there are 14 items in carousel
+if (numberOfSlides.length === 14) {
+    resetCarousel = 15;
+    secondTrackCounter = 27;
+    resetCarouselVariables = 25;
+}
+// if there are 13 items in carousel
+if (numberOfSlides.length === 13) {
+    resetCarousel = 14;
+    secondTrackCounter = 25;
+    resetCarouselVariables = 24;
+}
+// if there are 12 items in carousel
+if (numberOfSlides.length === 12) {
+    resetCarousel = 13;
+    secondTrackCounter = 23;
+    resetCarouselVariables = 23;
+}
+// if there are 11 items in carousel
+else if (numberOfSlides.length === 11) {
+    resetCarousel = 12;
+    secondTrackCounter = 21;
+    resetCarouselVariables = 22;
+}
+// if there are 10 items in carousel
+else if (numberOfSlides.length === 10) {
+    resetCarousel = 11;
+    secondTrackCounter = 19;
+    resetCarouselVariables = 21;
+}
+// if there are 9 items in carousel
+else if (numberOfSlides.length === 9) {
+    resetCarousel = 10;
+    secondTrackCounter = 17;
+    resetCarouselVariables = 20;
+}
+// if there are 8 items in carousel
+else if (numberOfSlides.length === 8) {
+    resetCarousel = 9;
+    secondTrackCounter = 15;
+    resetCarouselVariables = 16;
+}
+// if there are 7 items in carousel
+else if (numberOfSlides.length === 7) {
+    resetCarousel = 8;
+    secondTrackCounter = 13;
+    resetCarouselVariables = 16;
+}
+// if there are 6 items in carousel
+else if (numberOfSlides.length === 6) {
+    resetCarousel = 7;
+    secondTrackCounter = 11;
+    resetCarouselVariables = 16;
+}
+// if there are 5 items in carousel
+else if (numberOfSlides.length === 5) {
+    resetCarousel = 6;
+    secondTrackCounter = 9;
+    resetCarouselVariables = 11;
+}
+// if there are 4 items in carousel
+else if (numberOfSlides.length === 4) {
+    resetCarousel = 5;
+    secondTrackCounter = 7;
+    resetCarouselVariables = 9;
+}
+ 
+
+// get first carousel item
+let boxWidth = document.querySelectorAll('.holder')[0];
+// get width of  carousel item (including margin)
+let boxWidthPlusMargin = boxWidth.offsetWidth;
+// add margin widths onto offsetwidths
+boxWidthPlusMargin += parseInt(window.getComputedStyle(boxWidth).getPropertyValue('margin-left'));
+boxWidthPlusMargin += parseInt(window.getComputedStyle(boxWidth).getPropertyValue('margin-right'));
+ 
+
+// DESKTOP
+if (window.innerWidth > 1024) {
+    const trackContainer = document.querySelector('.track__container');
+ 
+    // HOW TO CHANGE NUMBER OF SLIDES TO SHOW:
+ 
+    // the width of the track container (and slides to show) is determind by how many times you
+    // multiply the carousel item width (in this case * 3) - you can change to 4 to show 4 slides etc
+    trackContainer.style.width = (boxWidthPlusMargin * 3 + 'px');
+}
+ 
+// TABLET
+if (window.innerWidth >= 768 && window.innerWidth < 1025) {
+    const trackContainer = document.querySelector('.track__container');
+     
+    // HOW TO CHANGE NUMBER OF SLIDES TO SHOW:
+ 
+     // the width of the track container (and slides to show) is determind by how many times you
+    // multiply the carousel item width (in this case * 2 for tablet) - you can change to 3 to show 3 slides etc
+    trackContainer.style.width = (boxWidthPlusMargin * 2) + 'px';
+}
+ 
+// MOBILE
+if (window.innerWidth < 600) {
+    const trackContainer = document.querySelector('.track__container');
+ 
+    // HOW TO CHANGE NUMBER OF SLIDES TO SHOW:
+ 
+     // the width of the track container (and slides to show) is determind by how many times you
+    // multiply the carousel item width (in this case we don't multiply to show only 1 slide on mobile)
+    trackContainer.style.width = (boxWidthPlusMargin) + 'px';
+}
+ 
+
+// autoplay for carousel
+let interval = setInterval(forwardSlider, 3500);
+ 
+function forwardSlider() {
+    // This runs first - if trackOneActive is true, run slider as normal;
+    if (trackOneActive) {
+            trackOne.style.transform = `translateX(-${boxWidthPlusMargin * trackOneCount}px)`;
+            trackTwo.style.transform = `translateX(-${boxWidthPlusMargin * trackTwoCount}px)`;
+            trackOneCount++;
+            trackTwoCount++;
+        }
+    //  This runs second -  if trackOneActive is false, keep it in orginal position
+    if (!trackOneActive) {
+        trackTwo.style.transform += `translateX(-${boxWidthPlusMargin}px)`;
+        trackTwoCount++;
+    }
+    // track one count check
+    if (trackOneCount === resetCarousel) {
+        if (finalCount < 16) {
+            setTimeout(() => {
+                trackOne.style.transform = `translateX(${boxWidthPlusMargin * 3}px)`;
+            }, '700');
+        }
+         trackOneCount = 1;
+        //  set track one to true or false
+         trackOneActive = !trackOneActive;
+      }
+ 
+     // track two count check
+    if (trackTwoCount === (resetCarousel * 2)) {
+        clone.classList.add('hiding');
+          setTimeout(() => {
+                console.log('track 2 hidden');
+                trackTwo.style.transform = `translateX(${boxWidthPlusMargin * 3}px)`;
+                console.log('end fucntion');
+             }, '3300');
+             setTimeout(() => {
+                clone.classList.remove('hiding');
+             }, '5000');
+          trackTwoCount = 1;
+      }
+ 
+    //   if second track reaches a count of 11 or more
+      if ((trackTwoCount >= secondTrackCounter) || (trackOneRunsAgain)) {
+            trackOne.style.transform += `translateX(-${boxWidthPlusMargin}px)`;
+            trackOneCount++;
+            trackOneRunsAgain = true;
+      }
+ 
+      if (finalCount === resetCarouselVariables) {
+            // stop the carousel
+            // reset all variables to original value
+            trackOneCount = 1;
+            trackTwoCount = 1;
+            trackOneActive = true;
+            backwardClickLimit = 0;
+            trackOneRunsAgain = false;
+            finalCount = 1;
+            trackOne.removeAttribute("style");
+            trackTwo.removeAttribute("style");
+      }
+        finalCount++
+}
+ 
+// when user clicks back arrow
+function backwardsSlider() {
+    if (backwardClickLimit >= 3) {
+        // don't allow any more backward clicks
+        return;
+    }
+    if (trackOneCount <= 1) {
+        return;
+    }
+    else if (trackOneActive) {
+            trackOne.style.transform += `translateX(${boxWidthPlusMargin}px)`;
+            trackTwo.style.transform += `translateX(${boxWidthPlusMargin}px)`;
+            trackOneCount--;
+            trackTwoCount--;
+        }
+    else if (!trackOneActive) {
+        trackTwo.style.transform += `translateX(${boxWidthPlusMargin}px)`;
+        trackTwoCount--;
+    }
+    backwardClickLimit++
+}
+ 
+
+// forward button
+forwardButton.addEventListener('click', function() {
+    backwardClickLimit++
+       if (backwardClickLimit >= 2) {
+         backwardClickLimit = 0;
+    }
+ 
+    forwardButton.style.pointerEvents = 'none';
+    // kill autoplay
+    clearInterval(interval);
+        // run slider function
+        forwardSlider();
+         setTimeout(function(){
+        forwardButton.style.pointerEvents = 'auto';
+          }, 900);
+});
+ 
+
+// backwards button
+backwardsButton.addEventListener('click', function() {
+    backwardsButton.style.pointerEvents = 'none';
+      // kill autoplay
+      clearInterval(interval);
+      backwardsSlider();
+      setTimeout(function(){
+        backwardsButton.style.pointerEvents = 'auto';
+    }, 900);
+});
+
+
+
+// Second track carousel, whichever is clicked on the second carousel item triggers a click event on first carousel item (if they have the same class name)
+const SecondTrackItems = document.querySelectorAll('.track__two .holder');
+// First track carousel
+const FirstTrackItems = document.querySelectorAll('.track__one .holder');
+ 
+FirstTrackItems.forEach(function(FirstTrackItem) {
+    SecondTrackItems.forEach(function(SecondTrackItem) {
+        SecondTrackItem.addEventListener('click', function() {
+            if (this.className === FirstTrackItem.className) {
+                FirstTrackItem.querySelector('button').click();
+            }
+        });
+    });
+});
+</script>
+</html>
